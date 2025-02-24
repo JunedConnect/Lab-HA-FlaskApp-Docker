@@ -287,5 +287,5 @@ You now have a simple but scalable setup for your Flask web app, using Redis for
 
 |Here’s what it will look like (mine will have a different layout as I had customised the app.py script in Step 1):|
 |-------|
-| ![WebServer1](https://raw.githubusercontent.com/JunedConnect/Lab-HA-FlaskApp-Docker/blob/main/images/Flask%20App%201.png) |
-| ![WebServer1](https://raw.githubusercontent.com/JunedConnect/Lab-HA-FlaskApp-Docker/blob/main/images/Flask%20App%202.png) |
+| ![WebServer1](https://raw.githubusercontent.com/JunedConnect/Lab-HA-FlaskApp-Docker/main/images/Flask%20App%201.png) |
+| ![WebServer1](https://raw.githubusercontent.com/JunedConnect/Lab-HA-FlaskApp-Docker/main/images/Flask%20App%202.png) |
