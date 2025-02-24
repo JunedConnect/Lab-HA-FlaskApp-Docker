@@ -1,0 +1,43 @@
+services:
+
+  redis:
+    image: redis:8.0-M03-alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+    command: redis-server --port 6379 #this should be the same port number as with the internal container port mapping in the line above
+    volumes:
+      - ./redis-volume-data:/data
+
+  flask:
+    build: ./flask-app/ #rather than pulling an image from a repository, this will build an image based upon the flask-app directory
+    container_name: flask-app
+    ports:
+      - 5000:5000
+    depends_on:
+      - redis #flask requires the redis container to be running
+    environment:
+      - redis_port=6379 #this should be the same port number as with the internal container port mapping for redis
+      - flask_app_port=5000 #this should be the same port number as with the internal container port mapping for flask
+
+  flaskbackup:
+    build: ./flask-app/ #rather than pulling an image from a repository, this will build an image based upon the flask-app directory
+    container_name: flask-app-backup
+    ports:
+      - 5001:5001
+    depends_on:
+      - redis #flask requires the redis container to be running
+    environment:
+      - redis_port=6379 #this should be the same port number as with the internal container port mapping for redis
+      - flask_app_port=5001 #this should be the same port number as with the internal container port mapping for flask
+
+  nginxloadbalancer:
+    image: nginx:1.27.4-alpine
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - flask
+      - flaskbackup

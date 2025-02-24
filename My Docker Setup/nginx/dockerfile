@@ -1,0 +1,9 @@
+FROM nginx:1.27.4
+
+WORKDIR /app
+
+RUN pip install flask redis
+
+COPY . .
+
+CMD ["python", "app.py"]
