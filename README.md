@@ -1,5 +1,7 @@
 # Deploying a Highly Available Flask App with Redis Using Docker
 
+<br>
+
 ## Overview
 
 In this guide, you will set up a simple Flask web application that uses Redis to store visit attempts. The setup includes:
