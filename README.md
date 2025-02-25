@@ -6,7 +6,7 @@
 
 In this guide, you will set up a simple Flask web application that uses Redis to store visit attempts. The setup includes:
 
-- **Two Flask Application Servers**: Each Flask app will interact with Redis to track the number of visits.
+- **Two Flask Application Instances**: Each Flask app will interact with Redis to track the number of visits.
 - **Redis Database**: A Redis container will store the visit count.
 - **Nginx Load Balancer**: Distributes incoming traffic between the Flask application servers.
 - **Docker Compose**: To easily orchestrate the entire setup with a single command.
